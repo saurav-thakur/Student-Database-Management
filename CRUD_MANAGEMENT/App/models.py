@@ -18,9 +18,8 @@ class Student(models.Model):
 
 class Marks(models.Model):
     studentName = models.ForeignKey(
-        Student, null=True, on_delete=models.CASCADE, unique=True)
-    # RollNumber = models.ForeignKey(
-    #     Student.Rollno, null=True, on_delete=models.CASCADE)
+        Student, null=True, on_delete=models.CASCADE)
+    
     operatingSystems = models.FloatField(null=False)
     computerNetworks = models.FloatField(null=False)
     DBMS = models.FloatField(null=False)
