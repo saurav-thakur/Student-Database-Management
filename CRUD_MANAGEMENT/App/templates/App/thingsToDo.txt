@@ -1,0 +1,4 @@
+1.) Make Page more beautiful by adding margins.
+2.) Update and Delete for all portion are remaining. - 
+3.) In Student Marks page add Roll number part as a foreign key and update the same in Student Marks database.
+4.) Add total marks of all subject and show pass or fail by adding a criteria.

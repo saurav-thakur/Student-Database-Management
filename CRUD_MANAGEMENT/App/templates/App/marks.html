@@ -1,0 +1,86 @@
+{% extends 'App/layout.html' %}
+
+{% block title %} Student Marks{% endblock title %}
+
+{% block content %}
+
+{% include 'App/navbar.html' %}
+
+<div class="container form-group col-sm-6 ">
+
+    <h3 class=" text-center alert alert-danger"> Add Student's Marks</h3>
+
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary btn-sm " type="submit" name="submit">
+
+    </form>
+
+
+
+</div>
+
+
+
+<div class="container form-group col-sm-6 mt-5 ">
+
+    <h3 class=" text-center alert alert-danger">Added Student's Database </h3>
+
+
+
+
+    <hr>
+    <div class="card card-body">
+
+        <table class="table table-sm">
+            <tr>
+                <th>Name</th>
+                <th>OS</th>
+                <th>Comp. Networks</th>
+                <th>DBMS</th>
+                <th>SWE</th>
+                <th>Statistics</th>
+                <th>Linear Algebra</th>
+                <th>Total</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for i in marks %}
+
+            <tr>
+                <td>{{i.studentName}}</td>
+                <td>{{i.operatingSystems}}</td>
+                <td>{{i.computerNetworks}}</td>
+                <td>{{i.DBMS}}</td>
+                <td>{{i.SWE}}</td>
+                <td>{{i.stats}}</td>
+                <td>{{i.LinearAlgebra}}</td>
+                <td>{{total_sum}}</td>
+
+                <td><a class="btn btn-sm btn-info" href="{% url 'update_marks' i.id %}">Update</a></td>
+                <td><a class="btn btn-sm btn-danger" href="{% url 'delete_marks'  i.id%}">Delete</a>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock content %}

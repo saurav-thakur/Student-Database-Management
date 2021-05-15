@@ -1,0 +1,25 @@
+{% extends 'App/home.html' %}
+
+{% block title %} Update {% endblock title %}
+
+{% block content %}
+
+{% include 'App/navbar.html' %}
+
+<div class="container form-group col-sm-6 ">
+
+    <h3 class=" text-center alert alert-danger"> Delete Student's ResultSheet </h3>
+
+    <p>Are you sure you want to delete {{marks}}'s Result Sheet?</p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <a class="btn btn-sm btn-danger" href="{% url 'home' %}">Cancel</a>
+        <input class="btn btn-primary btn-sm " type="submit" name="submit">
+
+    </form>
+
+
+
+</div>
+
+{% endblock content %}

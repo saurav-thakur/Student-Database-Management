@@ -1,0 +1,77 @@
+{% extends 'App/layout.html' %}
+
+{% block title%} Home {% endblock title%}
+
+{% block content %}
+
+{% include 'App/navbar.html' %}
+
+<div class="container mt-2">
+
+    <h2 class="text-center alert alert-danger">Student Database Management System</h2>
+</div>
+
+<div class="container col-sm-6 mb-5">
+
+    <h3 class=" text-center alert alert-danger mx-auto"> Add Student </h3>
+
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-primary btn-sm mt-3" type="submit" name="submit">
+
+    </form>
+
+
+
+</div>
+
+<div class="container col-sm-6 ">
+
+    <h3 class=" text-center alert alert-danger ">Student Database </h3>
+
+
+
+
+    <hr>
+    <div class="card card-body ">
+
+        <table class="table table-sm">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Roll Number</th>
+                <th>Phone Number</th>
+                <th>Update</th>
+                <th>Remove</th>
+            </tr>
+
+            {% for i in student %}
+
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.Rollno}}</td>
+                <td>{{i.phoneNum}}</td>
+                <td><a class="btn btn-sm btn-info" href="{% url 'update_student' i.id%}">Update</a></td>
+                <td><a class="btn btn-sm btn-danger" href="{% url 'delete_student'  i.id%}">Delete</a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+{% endblock content %}
